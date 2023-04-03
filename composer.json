@@ -65,7 +65,7 @@
         "Currency\\CurrencyConverter\\CurrencyConverterServiceProvider"
       ],
       "aliases": {
-        "CurrencyConverter": "Currency\\CurrencyConverter\\Facades\\Currency"
+        "CurrencyConverter": "Currency\\CurrencyConverter\\Facades\\CurrencyConverter"
       }
     }
   },
