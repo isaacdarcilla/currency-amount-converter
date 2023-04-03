@@ -1,21 +1,18 @@
 <?php
 
-//use Currency\CurrencyConverter\Currency;
-//use Currency\CurrencyConverter\Exceptions\CurrencyNotSupported;
-//use Currency\CurrencyConverter\Exceptions\XmlUrlNotMatched;
+use Currency\CurrencyConverter\Currency;
 
-it('it has same exchange rate link', function () {
+it('has same exchange rate link', function () {
     expect(config('currency-amount-converter.exchange_rate'))
         ->toBe('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml');
 });
 
-//it(
-///**
-// * @throws XmlUrlNotMatched
-// * @throws CurrencyNotSupported
-// */ 'it return a currency rate',
-//    function () {
-//        $currency = new Currency();
-//        dd($currency->convert(2)->value());
-//    }
-//);
+it(
+    'return a currency rate',
+    function () {
+        $currency = new Currency();
+        $amount = $currency->convert(1)->value();
+
+        expect($amount)->toBeFloat();
+    }
+);

@@ -5,7 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/currency-amount-converter/currency-amount-converter/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/currency-amount-converter/currency-amount-converter/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/currency-amount-converter/currency-amount-converter.svg?style=flat-square)](https://packagist.org/packages/currency-amount-converter/currency-amount-converter)
 
-### Installation
+#### Installation
 
 You can install the package via composer:
 
@@ -19,99 +19,34 @@ You can publish the config file with:
 php artisan vendor:publish --tag="currency-amount-converter-config"
 ```
 
-This is the contents of the published config file:
+#### Usage
 
 ```php
-<?php
+use Currency\CurrencyConverter\Currency;
 
-return [
-    /*
-    |--------------------------------------------------------------------------
-    | Default Currency
-    |--------------------------------------------------------------------------
-    |
-    | This is the default currency to be converted into.
-    | Default is PHP, you can pass also pass supported currency.
-    |
-    */
-    'currency' => 'PHP',
+$currency = new Currency();
+$currency->convert(1)->value(); // 59.05
 
-    /*
-    |--------------------------------------------------------------------------
-    | Exchange Rate
-    |--------------------------------------------------------------------------
-    |
-    | This is where we fetch the daily exchange rate.
-    | Note: Do not modify this value.
-    |
-    */
-    'exchange_rate' => 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml',
+$currency = new Currency();
+$currency->convert(1, 'PHP')->value(); // 59.05
 
-   /*
-    |--------------------------------------------------------------------------
-    | Supported Currency
-    |--------------------------------------------------------------------------
-    |
-    | List of all the default supported currency.
-    |
-    */
-    'supported_currency' => [
-        'USD',
-        'JPY',
-        'BGN',
-        'CZK',
-        'DKK',
-        'GBP',
-        'HUF',
-        'PLN',
-        'RON',
-        'SEK',
-        'CHF',
-        'ISK',
-        'NOK',
-        'TRY',
-        'AUD',
-        'BRL',
-        'CAD',
-        'CNY',
-        'HKD',
-        'IDR',
-        'ILS',
-        'INR',
-        'KRW',
-        'MXN',
-        'MYR',
-        'NZD',
-        'PHP',
-        'SGD',
-        'THB',
-        'ZAR',
-    ],
-];
+$currency = new Currency();
+$currency->convert(1, 'BGN')->value(); // 1.9558
 
+$currency = new Currency();
+$currency->convert(2, 'BGN')->value(); // 3.9116
 ```
 
-### Usage
-
-```php
-$converter = new Currency();
-$converter->convert(100)->value(); // 59.05
-```
-
-### Testing
+#### Testing
 
 ```bash
 composer test
 ```
 
-### Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-### Credits
+#### Credits
 
 - [Isaac D. Arcilla](https://github.com/isaacdarcilla)
 
-### License
+#### License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
