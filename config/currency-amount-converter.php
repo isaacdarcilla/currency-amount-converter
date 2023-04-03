@@ -22,4 +22,45 @@ return [
     |
     */
     'exchange_rate' => 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Supported Currency
+    |--------------------------------------------------------------------------
+    |
+    | List of all the default supported currency.
+    |
+    */
+    'supported_currency' => [
+        'USD',
+        'JPY',
+        'BGN',
+        'CZK',
+        'DKK',
+        'GBP',
+        'HUF',
+        'PLN',
+        'RON',
+        'SEK',
+        'CHF',
+        'ISK',
+        'NOK',
+        'TRY',
+        'AUD',
+        'BRL',
+        'CAD',
+        'CNY',
+        'HKD',
+        'IDR',
+        'ILS',
+        'INR',
+        'KRW',
+        'MXN',
+        'MYR',
+        'NZD',
+        'PHP',
+        'SGD',
+        'THB',
+        'ZAR',
+    ],
 ];

@@ -46,6 +46,47 @@ return [
     |
     */
     'exchange_rate' => 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml',
+
+   /*
+    |--------------------------------------------------------------------------
+    | Supported Currency
+    |--------------------------------------------------------------------------
+    |
+    | List of all the default supported currency.
+    |
+    */
+    'supported_currency' => [
+        'USD',
+        'JPY',
+        'BGN',
+        'CZK',
+        'DKK',
+        'GBP',
+        'HUF',
+        'PLN',
+        'RON',
+        'SEK',
+        'CHF',
+        'ISK',
+        'NOK',
+        'TRY',
+        'AUD',
+        'BRL',
+        'CAD',
+        'CNY',
+        'HKD',
+        'IDR',
+        'ILS',
+        'INR',
+        'KRW',
+        'MXN',
+        'MYR',
+        'NZD',
+        'PHP',
+        'SGD',
+        'THB',
+        'ZAR',
+    ],
 ];
 
 ```
@@ -54,7 +95,7 @@ return [
 
 ```php
 $converter = new Currency();
-$converter->convert(100)->into('JPY')->value();
+$converter->convert(100)->value(); // 59.05
 ```
 
 ### Testing
@@ -67,14 +108,9 @@ composer test
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-### Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
 ### Credits
 
 - [Isaac D. Arcilla](https://github.com/isaacdarcilla)
-- [All Contributors](../../contributors)
 
 ### License
 
