@@ -23,18 +23,18 @@ php artisan vendor:publish --tag="currency-amount-converter-config"
 You can use method chaining:
 
 ```php
-use Currency\CurrencyConverter\Currency;
+use Currency\CurrencyConverter\CurrencyConverter;
 
-$currency = new Currency();
+$currency = new CurrencyConverter();
 $currency->convert(1)->value(); // 59.05
 
-$currency = new Currency();
+$currency = new CurrencyConverter();
 $currency->convert(1, 'PHP')->value(); // 59.05
 
-$currency = new Currency();
+$currency = new CurrencyConverter();
 $currency->convert(1, 'BGN')->value(); // 1.9558
 
-$currency = new Currency();
+$currency = new CurrencyConverter();
 $currency->convert(2, 'BGN')->value(); // 3.9116
 ```
 
@@ -42,11 +42,15 @@ or through the exposed API request.
 
 ```php
 GET /api/v1/currency-converter?amount=2&currency=USD
+```
+
+```php
+// Output
 
 {
-    'success' => 1,
-    'data' => [
-        'rate' => 2.175
+    "success" => 1,
+    "data" => [
+      "rate" => 2.175
     ],
 }
 ```
