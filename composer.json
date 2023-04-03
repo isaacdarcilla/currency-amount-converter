@@ -1,6 +1,6 @@
 {
   "name": "currency-amount-converter/currency-amount-converter",
-  "description": "A simple package that converts currency amount.",
+  "description": "A simple package that converts EURO to other currency amount.",
   "keywords": [
     "currency-amount-converter",
     "laravel",

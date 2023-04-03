@@ -1,4 +1,4 @@
-## A simple package that converts currency.
+## A simple package that converts EURO to other currency.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/currency-amount-converter/currency-amount-converter.svg?style=flat-square)](https://packagist.org/packages/currency-amount-converter/currency-amount-converter)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/currency-amount-converter/currency-amount-converter/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/currency-amount-converter/currency-amount-converter/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -21,6 +21,8 @@ php artisan vendor:publish --tag="currency-amount-converter-config"
 
 #### Usage
 
+You can use method chaining:
+
 ```php
 use Currency\CurrencyConverter\Currency;
 
@@ -35,6 +37,19 @@ $currency->convert(1, 'BGN')->value(); // 1.9558
 
 $currency = new Currency();
 $currency->convert(2, 'BGN')->value(); // 3.9116
+```
+
+or through the exposed API request.
+
+```php
+GET /api/v1/currency-converter?amount=2&currency=USD
+
+{
+    'success' => 1,
+    'data' => [
+        'rate' => 2.175
+    ],
+}
 ```
 
 #### Testing

@@ -3,7 +3,8 @@
 namespace Currency\CurrencyConverter;
 
 use Currency\CurrencyConverter\Contracts\Converter;
-use Exception;
+use Currency\CurrencyConverter\Exceptions\CurrencyNotSupported;
+use Currency\CurrencyConverter\Exceptions\XmlUrlNotMatched;
 
 class Currency extends Converter
 {
@@ -11,15 +12,14 @@ class Currency extends Converter
 
     /**
      * Convert the given amount.
+     *
+     * @throws XmlUrlNotMatched
+     * @throws CurrencyNotSupported
      */
     public function convert(float|int $amount, string $currency = null): static
     {
-        try {
-            $this->amount = $amount * $this->getRate($currency);
-        } catch (Exception $exception) {
-            report($exception);
-        }
-
+        $this->amount = $this->getRate($amount, $currency)->toString();
+        
         return $this;
     }
 
@@ -31,9 +31,5 @@ class Currency extends Converter
     public function value(): float|int
     {
         return $this->amount;
-    }
-
-    public function toJson()
-    {
     }
 }

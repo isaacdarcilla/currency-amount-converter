@@ -8,7 +8,10 @@ use Currency\CurrencyConverter\Exceptions\XmlUrlNotMatched;
 class Converter extends XmlParser
 {
     protected string $currency;
+
     protected array $supported_currency;
+
+    protected float|int $rate;
 
     public function __construct()
     {
@@ -22,9 +25,9 @@ class Converter extends XmlParser
      *
      * @throws XmlUrlNotMatched|CurrencyNotSupported
      */
-    public function getRate(string $currency = null): float|int
+    public function getRate(float|int $amount, string $currency = null): Converter
     {
-        if($currency && !in_array($currency, $this->supported_currency)) {
+        if ($currency && !in_array($currency, $this->supported_currency)) {
             throw new CurrencyNotSupported($this->$currency);
         }
 
@@ -38,6 +41,33 @@ class Converter extends XmlParser
             }
         }
 
-        return $rate;
+        $this->rate = $amount * $rate;
+
+        return $this;
+    }
+
+    /**
+     * Return string format
+     *
+     * @return float|int
+     */
+    public function toString(): float|int
+    {
+        return $this->rate;
+    }
+
+    /**
+     * Return array format
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'success' => 1,
+            'data' => [
+                'rate' => $this->rate,
+            ],
+        ];
     }
 }
