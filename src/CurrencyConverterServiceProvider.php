@@ -11,11 +11,7 @@ class CurrencyConverterServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('currency-amount-converter')
-            ->hasConfigFile();
-    }
-
-    public function boot()
-    {
-        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+            ->hasConfigFile()
+            ->hasRoute('currency');
     }
 }
