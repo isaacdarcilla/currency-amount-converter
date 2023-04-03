@@ -2,9 +2,9 @@
 
 namespace Currency\CurrencyConverter\Tests;
 
+use Currency\CurrencyConverter\CurrencyConverterServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Currency\CurrencyConverter\CurrencyConverterServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -17,7 +17,7 @@ class TestCase extends Orchestra
         );
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             CurrencyConverterServiceProvider::class,

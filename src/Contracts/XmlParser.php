@@ -8,7 +8,9 @@ use SimpleXMLElement;
 class XmlParser
 {
     protected string $xml;
+
     protected string $url;
+
     protected string $defaultUrl = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
 
     public function __construct()
@@ -19,7 +21,6 @@ class XmlParser
     /**
      * Parse the given URL.
      *
-     * @return bool|SimpleXMLElement
      * @throws XmlUrlNotMatched
      */
     public function parse(): bool|SimpleXMLElement
