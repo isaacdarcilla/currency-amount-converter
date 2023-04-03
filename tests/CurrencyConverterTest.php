@@ -1,8 +1,7 @@
 <?php
 
 use Currency\CurrencyConverter\Contracts\Converter;
-use Currency\CurrencyConverter\Currency;
-
+use Currency\CurrencyConverter\CurrencyConverter;
 use Illuminate\Testing\Fluent\AssertableJson;
 
 use function Pest\Laravel\get;
@@ -15,7 +14,7 @@ it('has same exchange rate link', function () {
 it(
     'return a currency rate',
     function () {
-        $currency = new Currency();
+        $currency = new CurrencyConverter();
         $amount = $currency->convert(1)->value();
 
         expect($amount)->toBeFloat();

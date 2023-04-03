@@ -6,7 +6,7 @@ use Currency\CurrencyConverter\Contracts\Converter;
 use Currency\CurrencyConverter\Exceptions\CurrencyNotSupported;
 use Currency\CurrencyConverter\Exceptions\XmlUrlNotMatched;
 
-class Currency extends Converter
+class CurrencyConverter extends Converter
 {
     protected float|int $amount = 0;
 
