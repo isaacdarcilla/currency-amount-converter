@@ -4,5 +4,4 @@ namespace Currency\CurrencyConverter;
 
 class Currency
 {
-
 }
