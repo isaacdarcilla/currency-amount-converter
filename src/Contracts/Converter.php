@@ -27,7 +27,7 @@ class Converter extends XmlParser
      */
     public function getRate(float|int $amount, string $currency = null): Converter
     {
-        if ($currency && !in_array($currency, $this->supported_currency)) {
+        if ($currency && ! in_array($currency, $this->supported_currency)) {
             throw new CurrencyNotSupported($this->$currency);
         }
 
@@ -36,7 +36,7 @@ class Converter extends XmlParser
 
         foreach ($xml->Cube->Cube->Cube as $item) {
             if ($item['currency'] == $currency ??= $this->currency) {
-                $rate = (float)$item['rate'];
+                $rate = (float) $item['rate'];
                 break;
             }
         }
@@ -48,8 +48,6 @@ class Converter extends XmlParser
 
     /**
      * Return string format
-     *
-     * @return float|int
      */
     public function toString(): float|int
     {
@@ -58,8 +56,6 @@ class Converter extends XmlParser
 
     /**
      * Return array format
-     *
-     * @return array
      */
     public function toArray(): array
     {

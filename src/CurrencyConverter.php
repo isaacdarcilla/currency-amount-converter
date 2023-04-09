@@ -19,14 +19,12 @@ class CurrencyConverter extends Converter
     public function convert(float|int $amount, string $currency = null): static
     {
         $this->amount = $this->getRate($amount, $currency)->toString();
-        
+
         return $this;
     }
 
     /**
      * Value of the converted amount.
-     *
-     * @return float|int
      */
     public function value(): float|int
     {

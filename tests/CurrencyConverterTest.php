@@ -39,7 +39,7 @@ it('has converts correct rate', function () {
 
     expect($response->getOriginalContent()['data']['rate'])
         ->toEqual($rate)
-        ->and($response)->assertJson(fn(AssertableJson $json) => $json
+        ->and($response)->assertJson(fn (AssertableJson $json) => $json
             ->has('success')
             ->has('data.rate')
             ->where('success', 1)
