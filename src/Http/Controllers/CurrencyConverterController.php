@@ -23,7 +23,10 @@ class CurrencyConverterController extends Controller
         $currency = $request->input('currency');
 
         return response()->json(
-            $converter->getRate($amount, $currency)->toArray(),
+            $converter->getRate(
+                $amount,
+                str($currency)->upper()
+            )->toArray(),
         );
     }
 }
