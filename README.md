@@ -38,21 +38,6 @@ $currency = new CurrencyConverter();
 $currency->convert(2, 'BGN')->value(); // 3.9116
 ```
 
-or through the exposed API request that returns a JSON response.
-
-```php
-GET /api/v1/currency-converter?amount=2&currency=USD
-```
-
-```php
-{
-    "success" => 1,
-    "data" => [
-      "rate" => 2.175
-    ]
-}
-```
-
 #### Testing
 
 ```bash
